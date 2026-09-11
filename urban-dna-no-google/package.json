@@ -1,0 +1,19 @@
+{
+  "name": "urban-dna-nvidia-3d",
+  "private": true,
+  "version": "5.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 5180"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "vite": "^6.3.5"
+  }
+}
