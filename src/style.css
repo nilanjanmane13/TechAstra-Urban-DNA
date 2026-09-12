@@ -15,3 +15,393 @@
 .altroute.hidden{display:none}
 .altline{display:flex;justify-content:space-between;align-items:center;font:11px 'DM Mono';color:#9fb3b8}
 .altline b{color:#45a8ff;font-size:14px}
+
+
+/* ============================================================
+   URBAN DNA — MOBILE MAP-FIRST FIX
+   ============================================================ */
+
+@media (max-width: 720px) {
+
+  .topbar {
+    height: 58px;
+    padding: 0 10px;
+    gap: 8px;
+  }
+
+  .brand {
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .brand .mark {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  .brandname {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .tag,
+  nav,
+  .search {
+    display: none;
+  }
+
+  .topmeta {
+    margin-left: auto;
+    gap: 7px;
+    font-size: 8px;
+  }
+
+  .topmeta span:not(#clock),
+  .topmeta .userchip {
+    display: none;
+  }
+
+  .logoutbtn {
+    padding: 6px 8px;
+    font-size: 8px;
+  }
+
+  /* MAP */
+
+  .mapwrap {
+    height: calc(100svh - 58px);
+    min-height: 620px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mapwrap #map3d {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .mapwrap gmp-map-3d {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* LAYERS */
+
+  .layers {
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 8px;
+    width: auto;
+    max-width: none;
+    padding: 9px;
+    border-radius: 12px;
+    background: rgba(7, 13, 18, .90);
+    backdrop-filter: blur(14px);
+    z-index: 20;
+  }
+
+  .layers h2 {
+    font-size: 12px;
+    margin: 3px 0 7px;
+  }
+
+  .layers .eyebrow {
+    font-size: 7px;
+  }
+
+  .layerlist {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .layerlist::-webkit-scrollbar {
+    display: none;
+  }
+
+  .layer {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 76px;
+    display: grid;
+    grid-template-columns: 7px auto;
+    gap: 6px;
+    padding: 7px 8px;
+    font-size: 8px;
+    border-radius: 7px;
+  }
+
+  .layer em {
+    display: none;
+  }
+
+  .swatch {
+    width: 6px;
+    height: 6px;
+  }
+
+  .legend {
+    margin-top: 6px;
+    padding-top: 6px;
+    font-size: 7px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .layerdata {
+    display: none;
+  }
+
+  /* ROAD PANEL */
+
+  .road {
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: auto;
+    bottom: 105px;
+    width: auto;
+    padding: 11px;
+    max-height: 185px;
+    overflow-y: auto;
+    border-radius: 12px;
+    background: rgba(7, 13, 18, .92);
+    backdrop-filter: blur(14px);
+    z-index: 20;
+  }
+
+  .road h1 {
+    font-size: 16px;
+    margin: 4px 0 7px;
+  }
+
+  .tabs {
+    gap: 12px;
+    padding-bottom: 7px;
+  }
+
+  .tabs span {
+    font-size: 7px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+    padding: 9px 0;
+  }
+
+  .stats strong {
+    font-size: 11px;
+    margin-top: 2px;
+  }
+
+  .stats small {
+    font-size: 7px;
+  }
+
+  .altroute {
+    margin-top: 6px;
+    padding-top: 6px;
+  }
+
+  .altline {
+    font-size: 8px;
+  }
+
+  .altline b {
+    font-size: 11px;
+  }
+
+  .diagnose {
+    height: 32px;
+    font-size: 8px;
+  }
+
+  /* CLICK HINT */
+
+  .clickhint {
+    top: 135px;
+    max-width: calc(100% - 30px);
+    padding: 5px 9px;
+    font-size: 7px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 15;
+  }
+
+  /* COMPASS */
+
+  .compass {
+    display: none;
+  }
+
+  /* MAP CONTROLS */
+
+  .mapcontrols {
+    position: absolute;
+    right: 9px;
+    bottom: 205px;
+    z-index: 25;
+  }
+
+  .mapcontrols button {
+    width: 34px;
+    height: 32px;
+  }
+
+  /* MAP STATUS */
+
+  .mapstatus {
+    left: 9px;
+    bottom: 205px;
+    padding: 6px 8px;
+    font-size: 7px;
+    z-index: 25;
+  }
+
+  /* METRICS */
+
+  .metrics {
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    display: flex;
+    gap: 7px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    z-index: 25;
+  }
+
+  .metrics::-webkit-scrollbar {
+    display: none;
+  }
+
+  .metric {
+    flex: 0 0 115px;
+    min-height: 58px;
+    padding: 8px 9px;
+    border-radius: 10px;
+  }
+
+  .metric b {
+    font-size: 14px;
+    margin-top: 3px;
+  }
+
+  .metric small {
+    font-size: 7px;
+  }
+
+  .metric span {
+    font-size: 7px;
+  }
+
+  /* BELOW MAP */
+
+  .below {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .panel {
+    min-height: auto;
+    padding: 14px;
+  }
+
+  .panel h2 {
+    font-size: 16px;
+  }
+
+  .panel p {
+    font-size: 11px;
+  }
+
+  .scenario-row {
+    flex-direction: column;
+  }
+
+  .scenario-row select,
+  .scenario-row button {
+    width: 100%;
+    min-height: 42px;
+  }
+
+  .impactgrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .askbox {
+    height: auto;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .askbox input {
+    width: 100%;
+    min-height: 42px;
+  }
+
+  .askbox button {
+    min-height: 42px;
+  }
+
+  /* FOOTER */
+
+  footer {
+    padding: 12px 14px;
+    font-size: 8px;
+  }
+
+  .footerRight {
+    float: none;
+    display: block;
+    margin-top: 5px;
+  }
+}
+
+
+/* VERY SMALL PHONES */
+
+@media (max-width: 380px) {
+
+  .brandname {
+    font-size: 10px;
+  }
+
+  .layers {
+    padding: 7px;
+  }
+
+  .layer {
+    min-width: 68px;
+    padding: 6px;
+    font-size: 7px;
+  }
+
+  .road {
+    bottom: 100px;
+    max-height: 170px;
+  }
+
+  .metric {
+    flex-basis: 105px;
+  }
+
+}
