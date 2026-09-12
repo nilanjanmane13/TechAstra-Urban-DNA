@@ -29,13 +29,13 @@ app.use(
 );
 
 // ============================================================
-// AUTH
+// AUTH API
 // ============================================================
 
 app.use('/api/auth', authRouter);
 
 // ============================================================
-// CITY DATA
+// CITY DATA API
 // ============================================================
 
 app.post('/api/city-data', requireAuth, (req, res) => {
@@ -81,7 +81,7 @@ app.post('/api/city-data', requireAuth, (req, res) => {
 });
 
 // ============================================================
-// NVIDIA AI
+// NVIDIA AI API
 // ============================================================
 
 app.post('/api/urban-ai', requireAuth, async (req, res) => {
@@ -136,13 +136,11 @@ ${question || 'Analyze the selected urban system.'}
       'https://integrate.api.nvidia.com/v1/chat/completions',
       {
         method: 'POST',
-
         headers: {
           Authorization: `Bearer ${apiKey}`,
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
-
         body: JSON.stringify({
           model,
           messages: [
@@ -228,7 +226,7 @@ function pageGate(req, res, next) {
 app.use(pageGate);
 
 // ============================================================
-// VITE
+// START SERVER
 // ============================================================
 
 const port = Number(process.env.PORT || 5180);
