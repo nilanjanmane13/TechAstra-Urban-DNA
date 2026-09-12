@@ -226,12 +226,24 @@ function pageGate(req, res, next) {
 app.use(pageGate);
 
 // ============================================================
-// START SERVER
+// VITE / PRODUCTION STATIC FILES
 // ============================================================
 
 const port = Number(process.env.PORT || 5180);
 
 async function start() {
+  if (process.env.NODE_ENV === 'production') {
+    // Production: serve the Vite build
+    app.use(express.static('dist'));
+
+    app.listen(port, '0.0.0.0', () => {
+      console.log(`Urban DNA running on port ${port}`);
+    });
+
+    return;
+  }
+
+  // Development: use Vite middleware + HMR
   const vite = await createViteServer({
     server: {
       middlewareMode: true,
