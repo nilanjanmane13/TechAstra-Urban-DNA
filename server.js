@@ -10,6 +10,7 @@ dotenv.config({ path: '.env.local' });
 dotenv.config();
 
 const app = express();
+
 app.set('trust proxy', 1);
 
 app.use(express.json({ limit: '1mb' }));
@@ -20,6 +21,7 @@ app.use(
     secret: process.env.SESSION_SECRET || 'urban-dna-dev-secret-change-me',
     resave: false,
     saveUninitialized: false,
+    proxy: true,
     cookie: {
       httpOnly: true,
       sameSite: 'lax',
@@ -28,7 +30,6 @@ app.use(
     },
   })
 );
-
 // ============================================================
 // AUTH API
 // ============================================================
