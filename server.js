@@ -122,17 +122,22 @@ async function start() {
         await vite.close();
       } catch {}
       port = preferredPort + 1;
-      const vite2 = await createViteServer({
-        server: { middlewareMode: true, host: '127.0.0.1', port },
-      });
-      app.use(vite2.middlewares);
-      app.listen(port, '127.0.0.1', () => {
-        console.log(`Urban DNA running at http://127.0.0.1:${port}/`);
-      });
-    } else {
-      console.error(err);
-      process.exit(1);
-    }
+     app.use(pageGate);
+
+const port = Number(process.env.PORT || 5180);
+
+async function start() {
+  const vite = await createViteServer({
+    server: {
+      middlewareMode: true,
+      host: '0.0.0.0',
+    },
+  });
+
+  app.use(vite.middlewares);
+
+  app.listen(port, '0.0.0.0', () => {
+    console.log(`Urban DNA running on port ${port}`);
   });
 }
 
