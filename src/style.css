@@ -405,3 +405,107 @@
   }
 
 }
+/* ============================================================
+   MOBILE AI PANEL — CLEAN / SCROLLABLE
+   ============================================================ */
+
+@media (max-width: 720px) {
+
+  /* AI / Urban DNA panel */
+  .panel {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Panel heading */
+  .panel h2 {
+    margin: 4px 0 10px;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  /* Description text */
+  .panel p {
+    font-size: 10px;
+    line-height: 1.5;
+    margin: 6px 0;
+  }
+
+  /* Ask Urban DNA input area */
+  .askbox {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 40px;
+    margin-top: 12px;
+  }
+
+  .askbox input {
+    min-width: 0;
+    width: 100%;
+    height: 40px;
+    padding: 8px 10px;
+    font-size: 10px;
+  }
+
+  .askbox button {
+    flex: 0 0 50px;
+    height: 40px;
+    padding: 0;
+    font-size: 9px;
+  }
+
+  /* NVIDIA / Urban DNA answer */
+  .answer {
+    width: 100%;
+    max-width: 100%;
+
+    margin-top: 10px;
+    padding: 10px;
+
+    max-height: 230px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background: rgba(255,255,255,.025);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 8px;
+
+    font-size: 10px;
+    line-height: 1.55;
+
+    color: #9aa8ae;
+
+    /* Prevent long AI text from breaking the layout */
+    overflow-wrap: anywhere;
+    word-break: normal;
+
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .answer b {
+    color: #dff7f5;
+  }
+
+  /* Make impact/scenario content fit */
+  .impactgrid {
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .impactgrid > div {
+    min-width: 0;
+  }
+
+  .impactgrid b {
+    font-size: 16px;
+  }
+
+  .impactline {
+    flex-wrap: wrap;
+    font-size: 8px;
+  }
+}
