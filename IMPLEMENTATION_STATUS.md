@@ -1,23 +1,23 @@
-# Urban DNA — Implementation Status
+# Urban DNA v7 — Full-Stack: Auth + DB + Efficient Layers + Live Search + Interactive Roads
 
-## Completed
-- Single dashboard entry point at `/`
-- Google Maps JavaScript 3D Maps integration
-- Pune default 3D HYBRID view
-- No legacy landing/login/Claude diagnosis UI
-- Urban DNA operations-style UI
-- City layer controls
-- Selected FC Road corridor panel
-- Scenario Lab
-- Predicted Impact
-- Ask Urban DNA
-- Traffic route overlay
-- 3D markers for key locations
-- Google map error handling without blanking the whole UI
-- Local environment key configuration
+## Done in this pass
+- Login/Sign-up page (`login.html`) with session auth, gating the whole app.
+- SQLite database (`better-sqlite3`) for users + a demo "city cells" cache.
+- Layer rendering rewritten to build-once/cache instead of rebuild-on-every-click.
+- Search bar wired to Google Geocoding — flies camera + loads data for any query.
+- Click-anywhere road selection: any lat/lng on the 3D map now returns a
+  deterministically generated (and cached) road + stats + alternate route via
+  `POST /api/city-data`, instead of only working on the few hardcoded Pune polygons.
+- All API routes (`/api/city-data`, `/api/urban-ai`) require a logged-in session.
 
-## Important
-Google 3D rendering depends on the Google project configuration, billing, API enablement, key restrictions, browser hardware acceleration, and 3D coverage. Google documents that `Map3DElement.mode` must be set for rendering; this build sets `HYBRID` by default.
-
-## Not claimed
-The traffic/AQI/population values are Urban DNA demo analytics, not live Google traffic/AQI data.
+## Known limitations / next steps
+- `city_cells` data is synthetic (seeded PRNG), not a real traffic feed — swap
+  `demoData.js` for a real provider (e.g. TomTom/HERE traffic API, Google Roads API)
+  when ready for production data.
+- Sessions use the default in-memory `express-session` store — fine for local/demo use;
+  swap in `connect-sqlite3` or Redis before deploying multiple server instances.
+- The `gmp-click` event payload shape on `Map3DElement` is read defensively
+  (`position`/`detail.position`/`latLng`) since it can vary by Maps JS API version —
+  verify against the exact library version once you have a live API key/billing enabled.
+- Login page video/marquee assets are placeholders from the supplied design spec;
+  swap `src/login.js` `BRANDS` array and the video URL for your own assets/logo.

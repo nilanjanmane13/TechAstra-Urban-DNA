@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Urban DNA — Sign in</title>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" />
+</head>
+<body>
+  <div class="hero-wrap">
+    <video class="hero-video" muted playsinline preload="auto"
+      src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_065045_c44942da-53c6-4804-b734-f9e07fc22e08.mp4"></video>
+
+    <div class="hero-blur"></div>
+
+    <section class="hero">
+      <nav class="navbar">
+        <div class="nav-logo">
+          <span class="mark">UD</span>
+          <span class="wordmark">URBAN DNA</span>
+        </div>
+        <div class="nav-actions">
+          <button class="btn-ghost" id="showLogin">Log In</button>
+          <button class="btn-hero-secondary" id="showSignup">Sign Up</button>
+        </div>
+      </nav>
+      <div class="nav-divider"></div>
+
+      <div class="hero-content">
+        <!-- Marketing headline, shown until a form is opened -->
+        <div class="hero-copy" id="heroCopy">
+          <h1 class="headline">
+            <span class="headline-plain">Urban </span><span class="headline-grad">DNA</span>
+          </h1>
+          <p class="hero-sub">
+            City-scale intelligence for traffic, air quality and infrastructure —<br />
+            simulate interventions before you make them.
+          </p>
+          <button class="btn-hero-secondary cta" id="showSignupCta">Get Started</button>
+        </div>
+
+        <!-- Auth card, hidden until Log In / Sign Up / Get Started is clicked -->
+        <div class="auth-card liquid-glass hidden" id="authCard">
+          <div class="auth-tabs">
+            <button class="auth-tab active" data-mode="login">Log In</button>
+            <button class="auth-tab" data-mode="signup">Sign Up</button>
+          </div>
+
+          <form id="loginForm" class="auth-form">
+            <label>Email
+              <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" />
+            </label>
+            <label>Password
+              <input type="password" name="password" autocomplete="current-password" required placeholder="••••••••" />
+            </label>
+            <div class="auth-error" id="loginError"></div>
+            <button type="submit" class="btn-hero-secondary auth-submit">Log In</button>
+          </form>
+
+          <form id="signupForm" class="auth-form hidden">
+            <label>Name
+              <input type="text" name="name" autocomplete="name" required placeholder="Ada Lovelace" />
+            </label>
+            <label>Email
+              <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" />
+            </label>
+            <label>Password
+              <input type="password" name="password" autocomplete="new-password" required minlength="6" placeholder="At least 6 characters" />
+            </label>
+            <div class="auth-error" id="signupError"></div>
+            <button type="submit" class="btn-hero-secondary auth-submit">Create Account</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="marquee-row">
+        <div class="marquee-static">Relied on by teams<br />across the city</div>
+        <div class="marquee-track">
+          <div class="marquee-inner" id="marqueeInner"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="/src/login.js"></script>
+</body>
+</html>
